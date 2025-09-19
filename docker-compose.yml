@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    build: 
+      dockerfile: backend.dockerfile
+    command: fastapi dev main.py --host 0.0.0.0 
+    volumes:
+      - ./backend:/code
+    ports:
+      - "8000:8000"
+  # app:
+  #   build: 
+  #     context: .
+  #     dockerfile: frontend.dockerfile
+  #   volumes:
+  #     - ./frontend:/code
+  #   ports:
+  #     - "3000:3000"
+  #   command: yarn run dev
+      #
+
