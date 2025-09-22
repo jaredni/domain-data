@@ -9,14 +9,14 @@ services:
       - ./backend:/code
     ports:
       - "8000:8000"
-  # app:
-  #   build: 
-  #     context: .
-  #     dockerfile: frontend.dockerfile
-  #   volumes:
-  #     - ./frontend:/code
-  #   ports:
-  #     - "3000:3000"
-  #   command: yarn run dev
-      #
+  app:
+    build: 
+      context: .
+      dockerfile: frontend.dockerfile
+    volumes:
+      - ./frontend:/code
+      - /code/node_modules
+    ports:
+      - "3000:3000"
+    command: yarn run dev
 
