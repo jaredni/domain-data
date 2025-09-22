@@ -24,7 +24,11 @@ async def fetch_domain_data(data: RequestSchema):
 
     results = whois.who_is_service_post(domain)
 
+    if "error" in results:
+        return results
+
     results_data = dict()
+
     results_data["data"] = results["WhoisRecord"]
     results_data["data"]["information_type"] = data_type
 

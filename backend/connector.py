@@ -18,9 +18,12 @@ class WhoIs:
 
         response = requests.post(url, headers=headers, json=json_data)
 
-        if response.status_code != 200:
+        response_json = response.json()
+        data = response_json.get("WhoisRecord", {})
+
+        if not data or data.get("dataError", None):
             return {"error": "Failed to fetch data from WHOIS service", "status": "error"}
 
-        return response.json()
+        return response_json
 
 

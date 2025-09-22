@@ -14,17 +14,18 @@ interface Result {
 }
 
 interface ResultsProps {
+    domainName: string;
     result: Result;
 }
 
-const Results = ({result}: ResultsProps) => {
+const Results = ({domainName, result}: ResultsProps) => {
     const formatKey = (key: string): string => {
         return key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     }
 
     return (
         <div className="results">
-            <p className="text-4xl">{formatKey(result.information_type)} for <span className="font-bold">amazon.com</span></p>
+            <p className="text-4xl">{formatKey(result.information_type)} for <span className="font-bold">{domainName}</span></p>
             <div className="bg-gray-100 rounded-lg shadow p-6 mt-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {Object.entries(result)
