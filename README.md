@@ -1,3 +1,5 @@
+This is a Project that fetches and displays WHOIS information for a given domain name using a React using Next.js frontend and a FastAPI backend
+
 To run the project locally, use the command:
 
 ```bash
