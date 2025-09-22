@@ -13,13 +13,16 @@ export default function Home() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    // reset everything when making a new search
     setError(null);
     setLoading(true);
     setResults(null);
     const searchValue = (document.getElementById('search') as HTMLInputElement)?.value;
     setDomainName(searchValue);
     const informationTypeValue = (document.querySelector('input[name="informationType"]:checked') as HTMLInputElement)?.value;
+
     if (!searchValue) {
+      // For simplicity, using alert. In production, consider a better UI approach.
       alert('Please enter a domain.');
       return;
     }
@@ -30,6 +33,8 @@ export default function Home() {
         setError(data.error);
         return;
     }
+
+    // the backend wraps the result in a data object
     setResults(data.data);
   };
 

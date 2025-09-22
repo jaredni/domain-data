@@ -3,6 +3,9 @@ from config import settings
 
 
 class WhoIs:
+    """
+        A class to interact with the WHOIS service API.
+    """
     def who_is_service_post(self, domain_name: str):
         url = f"{settings.WHOIS_API_URL}/WhoisService"
 

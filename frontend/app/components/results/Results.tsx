@@ -20,6 +20,7 @@ interface ResultsProps {
 
 const Results = ({domainName, result}: ResultsProps) => {
     const formatKey = (key: string): string => {
+        // Convert snake_case to Title Case
         return key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     }
 

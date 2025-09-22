@@ -1,5 +1,5 @@
 from enum import Enum
-from pydantic import BaseModel, Field, computed_field, PrivateAttr
+from pydantic import BaseModel, Field, computed_field
 from typing import Literal, Union
 
 
